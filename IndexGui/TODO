@@ -1,0 +1,13 @@
+-test
+
+-valutare eventuale integrazione con api2 nel caso si decidesse di includere in api2 le funzionalità di bilancio
+
+-scremare ext4
+
+- grafico andamento valori --> problema nella corretta gestione della scala
+
+- mettere link per passaggio a dati di dettaglio , sul nome dell'indice
+
+- cambiare tutti i Double con BigDecimal al fine di modificare il db da double precision a numeric 
+
+- sincronizzare le chiamate ad oratio, oratioAdapter è prototype

@@ -1,0 +1,76 @@
+
+body {
+		FONT-SIZE: 8pt;
+    	color: rgb(35, 112, 177);
+    	FONT-FAMILY: Verdana, Arial, Helvetica;
+    	/*background: white url( ../images/bordermenu.gif) repeat-x;*/
+    	text-align:center;
+}
+
+
+a {
+	color: #214896;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+a:hover {
+	color:#CC0000;
+	font-weight:bold;
+}
+
+#container {
+	width:550px;
+}
+
+th.login {
+	font-weight: bold;
+   	FONT-SIZE: 10pt;
+   	text-align:center;
+   	padding-top:5px;
+   	padding-left:2px;
+}
+
+td.login {
+	font-weight: bold;
+   	FONT-SIZE: 10pt;
+   	text-align:right;
+   	padding-top:10px;
+}
+
+td.loginright {
+	font-weight: bold;
+   	FONT-SIZE: 10pt;
+   	text-align:left;
+   	padding-top:10px;
+}
+
+tr.login {
+
+}
+
+input.button {
+	COLOR: black; 
+   	BACKGROUND: #FFCC00 url( ../images/submit.png);
+   	font-weight: bold;
+   	FONT-SIZE: 10pt;
+   	height:20px;
+   	width:150px;
+   	border:none;	
+}
+
+#loginpane {
+	background : white url( ../images/mainBg.png) no-repeat;
+	/*border: 1px solid black;*/
+	/*border: 1px solid #6382BF;*/
+	/*padding-left:20px;*/
+	width:550px;
+	height:211px;
+	padding:10px;
+	vertical-align:bottom;
+}
+
+li.packcontent {
+	list-style-type:none;
+	padding-top:5px;
+}

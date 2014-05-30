@@ -1,0 +1,96 @@
+body {
+	background: white url( ../images/mainbgAcqua.png);
+	font-family: Verdana, Arial, Helvetica;
+	font-size:0.8em;
+	padding:0px;
+	margin:0px;
+}
+
+a {
+	padding:1px;
+	color: #214896;
+	text-decoration:none;
+}
+
+a.image {
+	border:none;
+	padding:0px;
+}
+
+a img {
+	border:none;
+}
+
+a:hover{
+	padding:0px;
+  background-color : #D1DEF1;
+  border: 1px solid #AEC7DC;
+  font-weight:bold;
+}
+
+div {
+	padding:0px;
+	margin:0px;
+}		
+
+ul {
+	list-style: none;
+	width:100%;
+}
+
+#OratioMenuContainer {
+	/*margin-right:10px;*/
+	width:100%;
+	height:100%;
+	vertical-align:top;
+	text-align:left;
+	margin-left:10px;
+	/*top:0px;*/
+	/*left:6px;*/
+	overflow:auto;
+}
+
+#menubutton {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:16px;
+	height:100%;
+	z-index:200;
+	background: rgb(35, 112, 177);
+	overflow:hidden;
+}
+
+#OratioMenu li {
+	margin:0px;
+	padding:0px;
+	margin-bottom:10px;
+	padding-left: 0px;
+	padding-bottom:10px;
+	width:261px;
+}
+
+#OratioMenu li ul {
+	margin:0px;
+	padding-bottom:2px;
+	padding-left: 10px;
+}
+
+#OratioMenu li ul li {
+	margin:0px;
+	padding-bottom:2px;
+	padding-left: 10px;
+}
+
+.menubutton img {
+	vertical-align:top;
+}
+
+
+#AdminLink {
+	padding-left:10px;
+	padding-bottom:2px;
+	background: #FEFEFE;
+	border-bottom: 1px solid #888888;
+}
+

@@ -1,0 +1,108 @@
+{
+	"admin":{
+		"title":"Amministrazione Indici",
+		"panel_title" : "Pannello di amministrazione",
+		"create_snapshot" : "Crea snapshot",
+		"index_list" : "Lista degli indici",
+		"balance_list" : "Lista bilancio",
+		"snapshot_list" : "Lista degli snapshot",
+		"category_list" : "Lista delle categorie",
+		"add" : "Aggiungi elemento",
+		"add_balance_item" : "Aggiungi voce di bilancio"
+	},
+	"user":{
+		"title":"Visualizzazione Indici"
+	},
+	"menu":{
+		"admin":"Amministrazione",
+		"user":"Visualizzazione",
+		"select":"Selezione del pannello a sinistra",
+		"balance" : "Indici bilancio"
+	},
+	"error":{
+		"title":"Errore",
+		"internal_server_error":"Errore interno del server, contattare l'amministratore",
+		"missingdate" : "Intervallo temporale mancante",
+		"unsuccessfully_operation" : "Operazione non completata",
+		"missingdata" : "Non ci sono dati nello snapshot selezionato",
+		"missing_category_name" : "Nome della categoria mancante",
+		"missing_form_data" : "Dati del form mancanti",
+		"range_included" : "Tutti i range sono già stati inclusi",
+		"no_index_visualization" : "Non ci sono indici presenti nella vista",
+		"time_selection" : "Errore nella selezione di data e ora",
+		 "code_with_number" : "Il primo carattere del code è un numero!"
+	},
+	"success" : {
+		"title" : "Successo",
+		"successfully_operation" : "Operazione terminata con successo"
+	}, 
+	"common":{
+		"code":"Codice",
+		"description":"Descrizione",
+		"value":"Valore",
+		"name":"Nome",
+		"var_name" : "Nome variabile",
+		"unit" : "Unità",
+		"formula" : "Formula",
+		"arguments" : "Componenti",
+		"dateinterval" : "Intervallo temporale selezionato: {0}",
+		"balanceapaneltitle":"Balancio al {0}",
+		"snapshotindextitle":"Lista indici al {0}",
+		"details" : "Dettagli di",
+		"loading" : "Caricamento...",
+		"wait" : "Attendere...",
+		"confirmation_message" : "Sei sicuro di voler elimare l'elemento {0} ?",
+		"select_code" : "Seleziona il codice di bilancio",
+		"add_range" : "Inserisci un nuovo range di colori",
+		"color" : "Colore",
+		"superior" : "Limite superiore",
+		"inferior" : "Limite inferiore",
+		"operation" : "Azioni",
+		"id" : "ID",
+		"category" : "Categoria",
+		"nb_code" : "Se la variabile di sistema inizia con una cifra numerica, inserirla nel campo 'nome'.\n Il campo 'codice' non può inizare con una cifra numerica."
+	},
+	"form" : {
+		"selectdate" : "Seleziona data dello snapshot",
+		"fromdate" : "Dalla data",
+		"todate" : "Alla data",
+		"execute" : "Esegui",
+		"reset" : "Reset",
+		"setdate" : "Imposta date",
+		"show" : "Mostra indici",
+		"year" : "Anno",
+		"month" : "Mese",
+		"day" : "Giorno",
+		"hour" : "Ora",
+		"create" : "Crea",
+		"cadency" : "Cadenza",
+		"edit" : "Modifica",
+		"delete" : "Elimina",
+		"update" : "Aggiorna",
+		"close" : "Chiudi",
+		"add_balance_code" : "Inserisci codice di bilancio",
+		"insert" : "Inserisci",
+		"add_range" : "Aggiungi range",
+		"delete_range" : "Elimina range",
+		"details" : "Mostra dettagli",
+		"comparereport" : "Confronta con ... ",
+		"compare" : "Report confronto"
+	},
+	"chart" : {
+		"show" : "Mostra grafico",
+		"hide" : "Nascondi grafico"
+	},
+	"color" : {
+		"yellow" : "g",
+		"green" : "v",
+		"red" : "r"
+	},
+	"homepage" : {
+		"data_analysis" : "DATA ANALYSIS",
+		"data_analysis_content" : "L'analisi dell'andamento dei consumi elettrici e del benessere climatico, è realizzata mediante indicatori, cioè dati sintetici rappresentativi dei trend.L'analisi per indicatori, è una sintesi che non sostituisce l'analisi puntuale, ma ne rende più immediata la comprensione dell'andamento in un determinato periodo temporale.",
+		"credits" : "CREDITS",
+		"credits_content" : "L'analisi per indicatori è stata realizzata con il contributo scientifico dei seguenti gruppi di ricerca del POLITECNICO DI TORINO",
+		"calculation" : "CALCOLO E PRESENTAZIONE",
+		"calculation_content" : "I dati rilevati dal progetto Applus.Energie, il cui software è rilasciato con Apache Software Licence (<a href='http://www.apache.org/licenses/' target='_blank'>http://www.apache.org/licenses/</a>) vengono lavorati e presentati dal prodotto ORATIO4ENERGY rilasciato con licenza GPLv3 (<a href='http://gplv3.fsf.org/' target='_blank'>http://gplv3.fsf.org/</a>)."
+	}
+}

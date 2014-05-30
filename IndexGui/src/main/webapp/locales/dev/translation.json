@@ -1,0 +1,111 @@
+{
+	"admin":{
+		"title":"Index Administration",
+		"panel_title" : "Administration panel",
+		"create_snapshot" : "Create snapshot",
+		"index_list" : "Index list",
+		"balance_list" : "Balance items list",
+		"snapshot_list" : "Snapshot list",
+		"category_list" : "Category list",
+		"add" : "Add element",
+		"add_balance_item" : "Add balance item"
+	},
+	"user":{
+		"title":"Index Navigator"
+	},
+	"menu":{
+		"title":"Menu",
+		"admin":"Administration",
+		"user":"Navigator",
+		"select":"Select on left panel",
+		"balance": "Balance index"
+	},
+	"error":{
+		"title":"Error",
+		"internal_server_error":"Internal server error, please contact Administrator",
+		"missingdate" : "Date interval missing",
+		"unsuccessfully_operation" : "Operation not completed",
+		"missingdata" : "Data not present in selected snapshot",
+		"missing_category_name" : "Category name missing",
+		"missing_form_data" : "Some data are missing",
+		"range_included" : "All ranges have been already included",
+		"no_index_visualization" : "There are no indices present in the view",
+		"time_selection" : "Time selection is incorrect",
+		"code_with_number" : "Code first char is a number!"
+	},
+	"success" : {
+		"title" : "Success",
+		"successfully_operation" : "Operation completed successfully"
+	}, 
+	"common":{
+		"code":"Code",
+		"description":"Description",
+		"value":"Value",
+		"name":"Name",
+		"var_name" : "Variable name",
+		"unit" : "Unit",
+		"formula" : "Formula",
+		"arguments" : "Arguments",
+		"dateinterval" : "Selected date interval: {0}",
+		"balanceapaneltitle":"Balance at {0}",
+		"snapshotindextitle":"Index list at {0}",
+		"details" : "Details for",
+		"loading" : "Loading...",
+		"wait" : "Please wait...",
+		"confirmation_message" : "Are you sure to delete {0} ?",
+		"select_code" : "Select balance code",
+		"add_range" : "Add new color range",
+		"color" : "Color",
+		"superior" : "Superior limit",
+		"inferior" : "Inferior limit",
+		"operation" : "Operation",
+		"id" : "ID",
+		"category" : "Category",
+		"credits" : "Credits",
+		"nb_code" : "If a system variable starts with a number, please use it in name field instead of code field. \n Code can not starts with a number."
+	},
+	"form" : {
+		"selectdate" : "Select snapshot date",
+		"fromdate" : "From date",
+		"todate" : "To date",
+		"execute" : "Execute",
+		"setdate" : "Set date",
+		"reset" : "Reset",
+		"show" : "Show index",
+		"year" : "Year",
+		"month" : "Month",
+		"day" : "Day",
+		"hour" : "Hour",
+		"create" : "Create",
+		"cadency" : "Cadency",
+		"edit" : "Edit",
+		"delete" : "Delete",
+		"update" : "Update",
+		"close" : "Close",
+		"add_balance_code" : "Add balance code",
+		"insert" : "Insert",
+		"add_range" : "Add range",
+		"delete_range" : "Delete range",
+		"details" : "View details",
+		"report" : "Report",
+		"comparereport" : "Compare with ... ",
+		"compare" : "Comparison report"
+	},
+	"chart" : {
+		"show" : "Show chart",
+		"hide" : "Hide chart"
+	},
+	"color" : {
+		"yellow" : "y",
+		"green" : "g",
+		"red" : "r"
+	},
+	"homepage" : {
+		"data_analysis" : "DATA ANALYSIS",
+		"data_analysis_content" : "The analysis of trends in energy consumption and climate well-being is realized through indicators, rather synthetic data representative of the trends. The analysis by indicator, is a summary that does not replace the detailed analysis, but makes the trends immediately understandable in a given period of time.",
+		"credits" : "CREDITS",
+		"credits_content" : "The analysis was carried out with scientific contributions from the following research groups from the POLYTECHNIC OF TURIN",
+		"calculation" : "CALCULATION AND PRESENTATION",
+		"calculation_content" : "The data collected by the Applus.Energie project, whose software is released under the Apache Software License (<a href='http://www.apache.org/licenses/' target='_blank'>http://www.apache.org/licenses/</a>) are processed and presented by the product, ORATIO4ENERGY licensed under GPLv3 (<a href='http://gplv3.fsf.org/' target='_blank'>http://gplv3.fsf.org/</a>)."
+	}
+}

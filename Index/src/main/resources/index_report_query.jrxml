@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="index_report" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ed03f2e-98f7-4f39-aa3d-dc134878be86">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ienergy_verres"/>
+	<parameter name="index_id" class="java.lang.String">
+		<parameterDescription><![CDATA[Id Indice]]></parameterDescription>
+	</parameter>
+	<parameter name="index_id_query" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[($P{index_id} == null || $P{index_id}.equals("")) ? "1=1" : "i.id =  '"+$P{index_id}+"'"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_date" class="java.sql.Timestamp">
+		<parameterDescription><![CDATA[Da Data]]></parameterDescription>
+	</parameter>
+	<parameter name="fromdate_query" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[($P{from_date} == null || $P{from_date}.equals("")) ? "1=1" : "s.datetime >= CAST('"+$P{from_date}+"' AS timestamp)"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_date" class="java.sql.Timestamp">
+		<parameterDescription><![CDATA[A Data]]></parameterDescription>
+	</parameter>
+	<parameter name="todate_query" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[($P{to_date} == null || $P{to_date}.equals("")) ? "1=1" : "s.datetime <= CAST('"+$P{to_date}+"' AS timestamp)"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT s.*, i.*
+		FROM bi_indexsnapshot AS s INNER JOIN bi_index AS i ON i.id=s.index_id
+		WHERE 1=1
+		AND $P!{index_id_query}
+		AND $P!{fromdate_query}
+		AND $P!{todate_query}
+		ORDER BY i.id, s.datetime]]>
+	</queryString>
+	<field name="datetime" class="java.sql.Timestamp"/>
+	<field name="arguments" class="java.lang.String"/>
+	<field name="formula" class="java.lang.String"/>
+	<field name="value" class="java.math.BigDecimal"/>
+	<field name="index_id" class="java.lang.Long"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="unit" class="java.lang.String"/>
+	<field name="category_id" class="java.lang.Long"/>
+	<sortField name="index_id" order="Descending"/>
+	<variable name="max_value" class="java.math.BigDecimal" calculation="Highest">
+		<variableExpression><![CDATA[$F{value}]]></variableExpression>
+	</variable>
+	<variable name="min_value" class="java.math.BigDecimal" calculation="Lowest">
+		<variableExpression><![CDATA[$F{value}]]></variableExpression>
+	</variable>
+	<variable name="media" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{value}]]></variableExpression>
+	</variable>
+	<group name="index_id">
+		<groupExpression><![CDATA[$F{index_id}]]></groupExpression>
+	</group>
+	<title>
+		<band height="38" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="555" height="30" uuid="97795ea6-ff6c-4c65-8b3b-00fd898f7b09"/>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORT INDICE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="318" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.equals(1)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="16" isRemoveLineWhenBlank="true" uuid="0b04f19c-9ccb-4bbf-afdf-0e301d92ea41">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indice:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="100" y="0" width="280" height="16" isRemoveLineWhenBlank="true" uuid="d11e062c-5283-4116-ad88-21a43b0f79f2"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="16" width="100" height="16" isRemoveLineWhenBlank="true" uuid="2313e7aa-7031-48ec-8ad6-496beb9c62a4">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrizione:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="100" y="16" width="280" height="30" isRemoveLineWhenBlank="true" uuid="0567e8dc-0b65-499d-9197-98a2f8e109ab"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="false">
+				<reportElement x="440" y="0" width="115" height="16" isRemoveLineWhenBlank="true" uuid="e4d2e30a-5f81-4e6a-a0b9-bdee16ae2af3">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{from_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="0" width="60" height="16" isRemoveLineWhenBlank="true" uuid="b816bd85-c2bf-46e6-bbba-678cee0ba4b3">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Da data:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="380" y="16" width="60" height="16" isRemoveLineWhenBlank="true" uuid="ecc9e6e2-c288-4c6a-beaa-fa9deccfbe27">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A data:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="440" y="16" width="115" height="16" isRemoveLineWhenBlank="true" uuid="6470ea6e-e1d0-4537-b102-b28310cb6b85">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{to_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="48" width="100" height="20" isRemoveLineWhenBlank="true" uuid="e31e859e-f37b-48e8-be58-b6d9ab4068cd">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Statistiche]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="68" width="80" height="16" isRemoveLineWhenBlank="true" uuid="3f71a8e8-ef80-41f7-9a0e-ee34e8ac76d8">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore max:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" evaluationTime="Report" pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement x="80" y="68" width="100" height="16" isRemoveLineWhenBlank="true" uuid="ba0c792e-50b7-4ea9-99c9-e6f30c7262a2"/>
+				<textFieldExpression><![CDATA[($F{unit} == null || $F{unit} == "") ? String.format("%.02f", $V{max_value}) : String.format("%.02f", $V{max_value}) + " " + $F{unit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="370" y="68" width="80" height="16" isRemoveLineWhenBlank="true" uuid="36548d77-7475-4c1d-b3b5-4f1d0d76d04f">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore min:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="180" y="68" width="90" height="16" isRemoveLineWhenBlank="true" uuid="dc525d04-f8b2-49c0-897c-934362da736b">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore medio:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" evaluationTime="Report" pattern="#,##0.00">
+				<reportElement x="270" y="68" width="100" height="16" isRemoveLineWhenBlank="true" uuid="31a5ec78-27cb-4c32-9039-6ce60ca98f3f"/>
+				<textFieldExpression><![CDATA[($F{unit} == null || $F{unit} == "") ? String.format("%.02f", $V{media}) : String.format("%.02f", $V{media}) + " " + $F{unit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" evaluationTime="Report" pattern="#,##0.00">
+				<reportElement x="450" y="68" width="105" height="16" isRemoveLineWhenBlank="true" uuid="d4b8ce52-69e7-498f-a206-6c29eca130ba"/>
+				<textFieldExpression><![CDATA[($F{unit} == null || $F{unit} == "") ? String.format("%.02f", $V{min_value}) : String.format("%.02f", $V{min_value}) + " " + $F{unit}]]></textFieldExpression>
+			</textField>
+			<timeSeriesChart>
+				<chart evaluationTime="Report">
+					<reportElement stretchType="RelativeToBandHeight" x="1" y="98" width="554" height="206" isRemoveLineWhenBlank="true" printWhenGroupChanges="index_id" uuid="20c2ffec-6b5a-4e0f-a0f1-b42233afc01c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<timeSeriesDataset timePeriod="Hour">
+					<timeSeries>
+						<seriesExpression><![CDATA[$F{name}]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{datetime}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{value}]]></valueExpression>
+					</timeSeries>
+				</timeSeriesDataset>
+				<timeSeriesPlot>
+					<plot/>
+					<timeAxisFormat>
+						<axisFormat/>
+					</timeAxisFormat>
+					<valueAxisLabelExpression><![CDATA[$F{unit}]]></valueAxisLabelExpression>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</timeSeriesPlot>
+			</timeSeriesChart>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="0" width="180" height="20" uuid="512e4c70-f9c5-47d6-8b42-e7036ab439ab"/>
+				<box topPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data e ora]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="0" width="180" height="20" uuid="bfd58fdd-7e1b-4ceb-a911-c7a42e1e15db"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{unit} == null || $F{unit} == "") ? $F{name} : $F{name} + " (" + $F{unit} + ")"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="true">
+				<reportElement x="100" y="0" width="180" height="16" uuid="08396420-ab86-4e5d-8157-3f4b23db5cfb">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="1" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{datetime}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="280" y="0" width="180" height="16" uuid="d2882d7f-b898-443c-a808-ac2d3d74cfa1"/>
+				<box topPadding="0" leftPadding="1" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<textField>
+				<reportElement x="538" y="0" width="17" height="20" uuid="e7c616ba-2dca-43d1-a830-5742b9e510da"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

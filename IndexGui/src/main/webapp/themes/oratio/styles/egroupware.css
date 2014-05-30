@@ -1,0 +1,692 @@
+a {
+	margin:2px;
+	
+}
+
+A:link
+{
+    COLOR: #1F4579;
+    TEXT-DECORATION: none;
+    font-weight:bold;
+    border:1px solid transparent;
+}
+A:visited
+{
+    font-weight:bold;
+    COLOR: black;
+    TEXT-DECORATION: none;
+}
+A:active
+{
+    FONT-WEIGHT: bolder;
+    COLOR: black;
+    TEXT-DECORATION: underline
+}
+A:hover
+{
+    background-color : #C8DDF2;
+    border: 1px solid #6382BF;
+    font-weight:bold;
+    padding:0px;
+}
+BODY
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+    /*background-image:url(../images/mainbgAcqua.png);*/
+}
+TD
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial, Helvetica
+}     
+.login
+{
+    FONT-SIZE: 10pt;
+	COLOR: #000000;    	
+    FONT-FAMILY: Verdana, Arial, Helvetica
+}
+BODY.login
+{
+    BACKGROUND-IMAGE: none;
+    COLOR: black;
+    BACKGROUND-COLOR: #E0DFE3
+}
+H1.login
+{
+    FONT-SIZE: 14pt
+}
+TABLE.login_out
+{
+    BACKGROUND-COLOR: #ffffff
+}
+TD.login_out_left
+{
+    BORDER-LEFT: #cc0000 2px solid;
+    TEXT-ALIGN: center
+}
+TD.login_out_right
+{
+    BORDER-RIGHT: #cc0000 2px solid;
+    TEXT-ALIGN: center
+}
+TABLE.login_in
+{
+    BORDER-RIGHT: #858585 1px solid;
+    BORDER-TOP: #858585 1px solid;
+    BORDER-LEFT: #858585 1px solid;
+    BORDER-BOTTOM: #858585 1px solid;
+    BACKGROUND-COLOR: #ffffff
+}
+TD.login_in
+{
+    BORDER-RIGHT: #858585 1px solid;
+    BORDER-TOP: #858585 1px solid;
+    BORDER-LEFT: #858585 1px solid;
+    BORDER-BOTTOM: #858585 1px solid;
+    TEXT-ALIGN: center
+}
+A.login_link:link
+{
+    COLOR: #e6e6e6;
+    TEXT-DECORATION: none
+}
+A.login_link:visited
+{
+    FONT-WEIGHT: bolder;
+    COLOR: #cc0000;
+    TEXT-DECORATION: none
+}
+A.login_link:active
+{
+    COLOR: #e6e6e6;
+    TEXT-DECORATION: none
+}
+A.login_link:hover
+{
+    COLOR: #cc0000;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+.credits
+{
+    FONT-SIZE: 9pt;
+    COLOR: #e6e6e6;
+    FONT-FAMILY: Verdana, Arial, Helvetica
+}
+.credits_bottom
+{
+    BORDER-BOTTOM: #cc0000 1px solid
+}
+BODY.admin
+{
+    COLOR: black;
+    BACKGROUND-COLOR: #cccccc
+}
+BODY.menu
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+.listtop
+{
+    font-size: 12pt;
+    color: white;
+    background: white url(../images/appHeaderBg.png) no-repeat;
+    height:36px;
+    padding:10px;
+    text-align:left;
+    font-weight:bolder;
+}
+
+.listheading
+{
+    FONT-SIZE: 9pt;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    background: white url(../images/listHeaderBg.png) repeat-x;
+}
+.listheading2
+{
+    FONT-SIZE: 9pt;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #FFCC00;
+}
+.listheading3
+{
+    FONT-SIZE: 9pt;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #C8DDF2;
+}
+
+A.listheading
+{
+    color: white;
+	border:none;
+	padding:0px;
+}
+
+A.listheading:hover
+{
+    COLOR: #CC0000;
+    border:none;
+}
+A.listheading:link
+{
+    COLOR: white;
+    TEXT-DECORATION: none;
+    border:none;
+}
+A.listheading:active
+{
+    COLOR: white;
+    TEXT-DECORATION: none;
+    border:none;
+}
+A.listheading:visited
+{
+    COLOR: white;
+    TEXT-DECORATION: none;
+    border:none;
+}
+.listrow0
+{
+    VERTICAL-ALIGN: middle;
+    COLOR: black;
+    BACKGROUND-COLOR: white;
+}
+.listrow1
+{
+    VERTICAL-ALIGN: middle;
+    COLOR: black;
+    BACKGROUND-COLOR: #E0DFE3;
+}
+
+.listrow0 a
+{
+	COLOR: #1F4579;
+    TEXT-DECORATION: none;
+    font-weight:bold;
+    border:1px solid transparent;
+}
+.listrow1 a
+{
+	COLOR: #1F4579;
+    TEXT-DECORATION: none;
+    font-weight:bold;
+    border:1px solid transparent;
+}
+.listrow0 a:hover
+{
+    border:1px solid #6382BF;
+}
+.listrow1 a:hover
+{
+   border:1px solid #6382BF;
+}
+
+.listrowwarning
+{
+    VERTICAL-ALIGN: top;
+    COLOR: black;
+    BACKGROUND-COLOR: #f00000
+}
+.listrowok
+{
+    VERTICAL-ALIGN: top;
+    COLOR: black;
+    BACKGROUND-COLOR: #00f000
+}
+.listsubtotal
+{
+    COLOR: black;
+    BACKGROUND-COLOR: #C8DDF2;
+}
+.listtotal
+{
+    COLOR: black;
+    background: white url(../images/listTotalBg.png) repeat-x;
+}
+.listtotal_border
+{
+    BORDER-TOP: silver thin groove;
+    COLOR: white;
+    BACKGROUND-COLOR: #7a0001
+}
+.submit
+{
+   COLOR: black;
+   BACKGROUND: white url( ../images/submit.png) no-repeat bottom;
+   font-weight: bold;
+   FONT-SIZE: 9pt;
+   width:150px;
+   border:none;
+   vertical-align:top;
+   text-align:top;
+   padding-bottom:2px;
+   /*BORDER: black 1px solid;*/
+   height:20px;
+}
+
+.submit :hover{
+	BACKGROUND: white url( ../images/submithover.png) no-repeat bottom;
+}
+
+.checkbox
+{
+    COLOR: #C8DDF2;
+    FONT-FAMILY: Verdana, Arial, Helvetica
+}
+.radio
+{
+    COLOR: #C8DDF2;
+    FONT-FAMILY: Verdana, Arial, Helvetica
+}
+.plus0
+{
+    COLOR: black
+}
+.plus1
+{
+    COLOR: green
+}
+H2.confirm
+{
+    FONT-SIZE: 10pt;
+    COLOR: blue
+}
+H2.error
+{
+    FONT-SIZE: 12pt;
+    COLOR: red
+}
+.noscreen
+{
+    DISPLAY: none
+}
+.noprint
+{
+    DISPLAY: none
+}
+.ivalabel
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+    BACKGROUND-COLOR: #dcdcdc
+}
+.stampaiva
+{
+    FONT-SIZE: 7pt;
+    FONT-FAMILY: Verdana, Arial, Helvetica
+}
+.librolabel
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial, Helvetica
+}
+.field
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.small_field
+{
+    FONT-SIZE: 6pt;
+    FONT-FAMILY: Verdana, Arial, Helvetica;
+}
+
+.label
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana, Arial;
+}
+
+th.label
+{
+    text-align:right;
+}
+
+.combo_small
+{
+    FONT-SIZE: 8pt;
+    WIDTH: 50px;
+    FONT-FAMILY: Verdana, Arial;
+}
+.combo
+{
+    FONT-SIZE: 8pt;
+    WIDTH: 100px;
+    FONT-FAMILY: Verdana, Arial;
+}
+.combo_medium
+{
+    FONT-SIZE: 8pt;
+    WIDTH: 150px;
+    FONT-FAMILY: Verdana, Arial;
+}
+.combo_medium_large
+{
+    FONT-SIZE: 8pt;
+    WIDTH: 220px;
+    FONT-FAMILY: Verdana, Arial;
+}
+.combo_large
+{
+    FONT-SIZE: 8pt;
+    WIDTH: 250px;
+    FONT-FAMILY: Verdana, Arial;
+}
+.border_table
+{
+    BORDER-RIGHT: silver thin ridge;
+    BORDER-TOP: silver thin groove;
+    BORDER-LEFT: silver thin ridge;
+    BORDER-BOTTOM: #cfcfcf thin groove
+}
+.border_field
+{
+    BORDER-BOTTOM: #cfcfcf thin groove
+}
+.border_sx
+{
+    BORDER-LEFT: #cfcfcf thin groove
+}
+.bd_ritenute
+{
+    BORDER-RIGHT: #cfcfcf 4px outset;
+    BORDER-TOP: #cfcfcf 4px inset;
+    BORDER-LEFT: #cfcfcf 4px inset;
+    BORDER-BOTTOM: #cfcfcf 4px outset
+}
+.bd_taxcode
+{
+    BORDER-TOP: #cfcfcf 4px inset;
+    BORDER-BOTTOM: #cfcfcf 2px outset
+}
+DIV.saltopagina
+{
+    PAGE-BREAK-AFTER: always
+}
+.backgr
+{
+    BACKGROUND-COLOR: #f2f2f2
+}
+.border_field_sx
+{
+    BORDER-TOP: silver thin groove;
+    BORDER-LEFT: silver thin ridge;
+    BORDER-BOTTOM: silver thin groove
+}
+.border_field_dx
+{
+    BORDER-RIGHT: silver thin ridge;
+    BORDER-TOP: silver thin groove;
+    BORDER-BOTTOM: silver thin groove
+}
+.border_field_top_bot
+{
+    BORDER-TOP: silver thin groove;
+    BORDER-BOTTOM: silver thin groove
+}
+.BoldBig
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 24px;
+    COLOR: #cc0000;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+DIV.layer
+{
+    MARGIN-TOP: 0px;
+    Z-INDEX: 1;
+    LEFT: 10px;
+    WIDTH: 100%;
+    MARGIN-RIGHT: 10px;
+    PADDING-TOP: 10px;
+    POSITION: absolute;
+    TOP: 70px
+}
+A.tab:link
+{
+    /*COLOR: black;*/
+    font-weight: bold; 
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+A.tab:hover
+{
+    /*COLOR: black;*/
+    font-weight: bold; 
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+A.tab:visited
+{
+
+    font-weight: bold; 
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+A.tab:active
+{
+    /*COLOR: black;*/
+    font-weight: bold; 
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+
+a img {
+	border:none;
+}
+
+#onglets A {
+   
+   COLOR: black; 
+   
+   font-weight: bold;
+   FONT-SIZE: 10pt;
+
+
+}
+
+#onglets A.tab:link
+{
+    font-weight: bold; 
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+#onglets A.tab:hover
+{
+
+    font-weight: bold; 
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+#onglets A.tab:visited
+{
+    font-weight: bold; 
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+#onglets A.tab:active
+{
+    font-weight: bold; 
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+
+table.tabtable {
+	border-collapse:collapse;
+	spacing:0px;
+	margin:0px;
+	padding:0px;
+}
+
+
+tr.trtab {
+    height:21px;
+    padding:0px;
+    padding-left:30px;
+    vertical-align:middle;
+    margin:0px;
+    display:block;
+
+}
+
+img.tabimg {
+	border:none;
+	padding:0px;
+	margin:0px;
+	height:25px;
+	vertical-align:top;
+}
+
+td.tabimg {
+	border:none;
+	padding:0px;
+	margin:0px;
+	border-collapse:collapse;    
+}
+
+td.activetab
+{
+      BORDER: 2px solid black;
+   height:21px;
+   BACKGROUND: #FFCC00 url( ../images/tab.png) repeat-x;
+    TEXT-ALIGN: center;
+
+}
+
+td.passivetab
+{
+    BORDER: 1px solid silver;
+    height:21px;
+    BACKGROUND: #FFCC00 url( ../images/tab.png) repeat-x;
+    TEXT-ALIGN: center;
+
+}
+P.layerfoot
+{
+    FONT-SIZE: 10px;
+    COLOR: #666666;
+    TEXT-ALIGN: center
+}
+TD.tdolive
+{
+    BORDER-RIGHT: gray 1px solid;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: gray 1px solid;
+    PADDING-LEFT: 5px;
+    PADDING-BOTTOM: 5px;
+    VERTICAL-ALIGN: top;
+    BORDER-LEFT: gray 1px solid;
+    PADDING-TOP: 5px;
+    BORDER-BOTTOM: gray 1px solid
+}
+TD.td_cells
+{
+    VERTICAL-ALIGN: top
+}
+P.celltitle
+{
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+.background_red
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    BORDER-LEFT: medium none;
+    BORDER-BOTTOM: medium none;
+    BACKGROUND-COLOR: red
+}
+
+td.tree {
+	width : 120 px;
+	border : 1px #aaaaaa solid;
+	background-color:#eeeeee;
+}
+
+td.tree-right {
+	text-align : right;
+	width : 100%;
+}
+
+
+td.barcodeleaf {
+	width : 200px;
+	border : 1px #aaaaaa solid;
+	background-color:#eeeeee;
+}
+
+
+td.barcodeleaf_1 {
+	width : 50px;
+	background-color:#eeeeee;
+	border : 1px #eeeeee solid;
+}
+
+td.barcodeleaf_0 {
+	width : 50px;
+	background-color:#ffffff;
+	border : 1px #cc0000 solid;
+}
+
+td.barcodenode_1 {
+	border : 1px #aaaaaa solid;
+	background-color:#eeeeee;
+	text-align:center;
+	vertical-align:top;
+}
+
+td.barcodenode_0 {
+	border : 1px #cc0000 solid;
+	background-color:#ffffff;
+	text-align:center;
+	vertical-align:top;
+}
+
+#layertables a {
+	font-color : black;
+}
+
+#layertables td {
+	font-color : black;
+}
+
+/*
+input:hover {
+	border-bottom: #ffdead solid 2px;
+	border-right: #ffdead solid 2px;
+	border-left: #c07300 solid 2px;
+	border-top:  #c07300 solid 2px;
+	background : white url(../images/input_white.gif) no-repeat;
+}
+
+input {
+	border: 1px black solid;
+	background : white url(../images/input_white.gif) no-repeat;
+}
+*/
+
+tr.editline {
+	border: 10px black solid;
+	horizontal-align:center;
+	padding:20px;
+}
+
+input.price {
+
+	background-color: #95D35D;
+	width:60px;
+	font-weigth:bold;
+}
+
+.listsubheading {
+	FONT-SIZE: 9pt;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #777777;
+}
+
+tr.editline {
+	border:1px solid #CC0000;
+
+}

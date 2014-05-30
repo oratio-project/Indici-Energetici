@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="compare_index" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="395fa321-2071-4764-b6d9-7724f0bad2f5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="101"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ienergy_verres"/>
+	<parameter name="index_id" class="java.lang.Long">
+		<parameterDescription><![CDATA[Id Indice]]></parameterDescription>
+	</parameter>
+	<parameter name="index_id_query" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[($P{index_id} == null || $P{index_id}.equals("")) ? "1=1" : "s.index_id =  '"+$P{index_id}+"'"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="compare_index_id" class="java.lang.Long">
+		<parameterDescription><![CDATA[Compara Id Indice]]></parameterDescription>
+	</parameter>
+	<parameter name="compare_index_id_query" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[($P{compare_index_id} == null || $P{compare_index_id}.equals("")) ? "1=1" : "s.index_id =  '"+$P{compare_index_id}+"'"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_date" class="java.sql.Timestamp">
+		<parameterDescription><![CDATA[Da Data]]></parameterDescription>
+	</parameter>
+	<parameter name="fromdate_query" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[($P{from_date} == null || $P{from_date}.equals("")) ? "1=1" : "s.datetime >= CAST('"+$P{from_date}+"' AS timestamp)"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_date" class="java.sql.Timestamp">
+		<parameterDescription><![CDATA[A Data]]></parameterDescription>
+	</parameter>
+	<parameter name="todate_query" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[($P{to_date} == null || $P{to_date}.equals("")) ? "1=1" : "s.datetime <= CAST('"+$P{to_date}+"' AS timestamp)"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT DISTINCT s.datetime,
+		$P!{index_id} AS index_id1,
+		(SELECT s2.value FROM bi_indexsnapshot s2 WHERE s2.index_id = $P!{index_id} AND s2.datetime=s.datetime) AS value1,
+		(SELECT i2.name FROM bi_index i2 INNER JOIN bi_indexsnapshot s3 ON i2.id = s3.index_id WHERE i2.id = $P!{index_id} AND s3.datetime=s.datetime) AS name1,
+		(SELECT i3.description FROM bi_index i3 INNER JOIN bi_indexsnapshot s4 ON i3.id = s4.index_id WHERE i3.id = $P!{index_id} AND s4.datetime=s.datetime) AS description1,
+		(SELECT i4.unit FROM bi_index i4 INNER JOIN bi_indexsnapshot s5 ON i4.id = s5.index_id WHERE i4.id = $P!{index_id} AND s5.datetime=s.datetime) AS unit1,
+		$P!{compare_index_id} AS index_id2,
+		(SELECT s6.value FROM bi_indexsnapshot s6 WHERE s6.index_id = $P!{compare_index_id} AND s6.datetime=s.datetime) AS value2,
+		(SELECT i5.name FROM bi_index i5 INNER JOIN bi_indexsnapshot s7 ON i5.id = s7.index_id WHERE i5.id = $P!{compare_index_id} AND s7.datetime=s.datetime) AS name2,
+		(SELECT i6.description FROM bi_index i6 INNER JOIN bi_indexsnapshot s8 ON i6.id = s8.index_id WHERE i6.id = $P!{compare_index_id} AND s8.datetime=s.datetime) AS description2,
+		(SELECT i7.unit FROM bi_index i7 INNER JOIN bi_indexsnapshot s9 ON i7.id = s9.index_id WHERE i7.id = $P!{compare_index_id} AND s9.datetime=s.datetime) AS unit2
+FROM bi_indexsnapshot AS s INNER JOIN bi_index AS i ON i.id=s.index_id
+WHERE 1=1
+AND $P!{fromdate_query}
+AND $P!{todate_query}
+ORDER BY s.datetime]]>
+	</queryString>
+	<field name="datetime" class="java.sql.Timestamp"/>
+	<field name="value1" class="java.math.BigDecimal"/>
+	<field name="index_id1" class="java.lang.Long"/>
+	<field name="description1" class="java.lang.String"/>
+	<field name="name1" class="java.lang.String"/>
+	<field name="unit1" class="java.lang.String"/>
+	<field name="value2" class="java.math.BigDecimal"/>
+	<field name="index_id2" class="java.lang.Long"/>
+	<field name="description2" class="java.lang.String"/>
+	<field name="name2" class="java.lang.String"/>
+	<field name="unit2" class="java.lang.String"/>
+	<sortField name="datetime"/>
+	<variable name="max_value1" class="java.math.BigDecimal" calculation="Highest">
+		<variableExpression><![CDATA[$F{value1}]]></variableExpression>
+	</variable>
+	<variable name="min_value1" class="java.math.BigDecimal" resetType="None" calculation="Lowest">
+		<variableExpression><![CDATA[$F{value1}]]></variableExpression>
+	</variable>
+	<variable name="media1" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{value1}]]></variableExpression>
+	</variable>
+	<variable name="max_value2" class="java.math.BigDecimal" calculation="Highest">
+		<variableExpression><![CDATA[$F{value2}]]></variableExpression>
+	</variable>
+	<variable name="min_value2" class="java.math.BigDecimal" calculation="Lowest">
+		<variableExpression><![CDATA[$F{value2}]]></variableExpression>
+	</variable>
+	<variable name="media2" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{value2}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="34" uuid="7af81579-9cde-464a-83a5-a7ba8c2b1427"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONFRONTA INDICI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="485" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.equals(1)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="1" width="53" height="17" uuid="752c5faa-8b7a-42c2-a896-eb5834b878b9"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Da data:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="52" y="1" width="114" height="17" uuid="a718fb6b-6494-4961-be94-ea816ad22d7c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{from_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="165" y="1" width="53" height="17" uuid="884227e5-c5e0-4172-be14-9c0ed75403b3"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A data:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="217" y="1" width="114" height="17" uuid="61348e75-337e-4601-90a1-110d58498fc4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{to_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="41" height="17" uuid="96fcf6f7-def0-4648-bcf0-bf6d0872fa89"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indice:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="41" y="30" width="100" height="17" uuid="2dc44412-bb4e-4942-9f63-18c6fc1593cb"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="141" y="30" width="75" height="17" uuid="993aa8fe-f1fb-4403-b266-a09ca73465d6"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrizione:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="216" y="30" width="339" height="17" uuid="d154f2c2-d3bf-454b-999e-6288ef554cb0"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="46" width="100" height="17" uuid="bc93ecc9-b79f-419f-a041-7d622606f7e2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore massimo:]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="100" y="46" width="90" height="17" uuid="11a9895f-9d64-4399-b8ce-fc1e1f0e6c0e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{unit1} == null || $F{unit1} == "") ? String.format("%.02f", $V{max_value1}) : String.format("%.02f", $V{max_value1}) + " " + $F{unit1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="188" y="46" width="85" height="17" uuid="16557743-ec7e-446d-bb82-347b046aecaf">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore medio:]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="272" y="46" width="100" height="17" uuid="a3edb76a-e929-4432-a7ca-3af9f2c15719"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{unit1} == null || $F{unit1} == "") ? String.format("%.02f", $V{media1}) : String.format("%.02f", $V{media1}) + " " + $F{unit1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="371" y="46" width="95" height="17" uuid="ceee2213-a0c4-4884-95d0-28abaee223be"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore minimo:]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="465" y="46" width="90" height="17" uuid="ff38c2df-b787-4bd3-a3d0-89d3bb6f3ce5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{unit1} == null || $F{unit1} == "") ? String.format("%.02f", $V{min_value1}) : String.format("%.02f", $V{min_value1}) + " " + $F{unit1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="73" width="100" height="20" uuid="196b6eda-0519-459c-b568-83a24ade3d44"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONFRONTA CON]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="465" y="119" width="90" height="17" uuid="031de39f-763e-4c4a-be6f-d85a96f14b95"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{unit2} == null || $F{unit2} == "") ? String.format("%.02f", $V{min_value2}) : String.format("%.02f", $V{min_value2}) + " " + $F{unit2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="188" y="119" width="85" height="17" uuid="d3959378-6f3e-4f75-9dfb-37418fa82844">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore medio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="103" width="41" height="17" uuid="aee0ee21-bf4c-4362-bf5c-15f0e006cfbe"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indice:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="216" y="103" width="339" height="17" uuid="da973486-f471-42dc-8e48-5fbdef44836a"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="371" y="119" width="95" height="17" uuid="b6e2b1c4-0ed4-4249-9b3e-b7f78716c91d"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore minimo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="103" width="75" height="17" uuid="44348fa9-f32b-400b-9bac-3eddcd7e328b"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrizione:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="41" y="103" width="100" height="17" uuid="12de9174-f7b2-4bbb-b513-e9a42c3f6d8f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name2}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="272" y="119" width="100" height="17" uuid="c4b1467b-0c96-4fc2-a43b-257fcc81c3d5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{unit2} == null || $F{unit2} == "") ? String.format("%.02f", $V{media2}) : String.format("%.02f", $V{media2}) + " " + $F{unit2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="119" width="100" height="17" uuid="8647bc61-280d-4aeb-9bf2-9bfde201b32d"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valore massimo:]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="100" y="119" width="90" height="17" uuid="42cb9dd5-e2d8-45f5-8197-1eb64f9b741a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[($F{unit2} == null || $F{unit2} == "") ? String.format("%.02f", $V{max_value2}) : String.format("%.02f", $V{max_value2}) + " " + $F{unit2}]]></textFieldExpression>
+			</textField>
+			<multiAxisChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="148" width="556" height="322" uuid="57a9520a-b5db-4a4b-a470-2a881204d7db"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<multiAxisPlot>
+					<plot/>
+					<axis position="leftOrTop">
+						<timeSeriesChart>
+							<chart evaluationTime="Report">
+								<reportElement x="0" y="0" width="0" height="0" backcolor="#FFFFFF" uuid="8763976f-df28-4474-9964-dbd4b6f6ccd0"/>
+								<chartTitle color="#000000"/>
+								<chartSubtitle color="#000000"/>
+								<chartLegend textColor="#000000" backgroundColor="#FFFFFF"/>
+							</chart>
+							<timeSeriesDataset timePeriod="Hour">
+								<timeSeries>
+									<seriesExpression><![CDATA[$F{name1}]]></seriesExpression>
+									<timePeriodExpression><![CDATA[$F{datetime}]]></timePeriodExpression>
+									<valueExpression><![CDATA[$F{value1}]]></valueExpression>
+								</timeSeries>
+							</timeSeriesDataset>
+							<timeSeriesPlot>
+								<plot/>
+								<timeAxisFormat>
+									<axisFormat/>
+								</timeAxisFormat>
+								<valueAxisLabelExpression><![CDATA[($F{unit1} == null || $F{unit1} == "") ? $F{name1} : $F{name1} + " (" + $F{unit1} + ")"]]></valueAxisLabelExpression>
+								<valueAxisFormat>
+									<axisFormat/>
+								</valueAxisFormat>
+							</timeSeriesPlot>
+						</timeSeriesChart>
+					</axis>
+					<axis position="rightOrBottom">
+						<timeSeriesChart>
+							<chart evaluationTime="Report">
+								<reportElement x="0" y="0" width="0" height="0" backcolor="#FFFFFF" uuid="11e74b1b-2c3f-4345-96d0-fa835023bbef"/>
+								<chartTitle color="#000000"/>
+								<chartSubtitle color="#000000"/>
+								<chartLegend textColor="#000000" backgroundColor="#FFFFFF"/>
+							</chart>
+							<timeSeriesDataset timePeriod="Hour">
+								<timeSeries>
+									<seriesExpression><![CDATA[$F{name2}]]></seriesExpression>
+									<timePeriodExpression><![CDATA[$F{datetime}]]></timePeriodExpression>
+									<valueExpression><![CDATA[$F{value2}]]></valueExpression>
+								</timeSeries>
+							</timeSeriesDataset>
+							<timeSeriesPlot>
+								<plot/>
+								<timeAxisFormat>
+									<axisFormat/>
+								</timeAxisFormat>
+								<valueAxisLabelExpression><![CDATA[($F{unit2} == null || $F{unit2} == "") ? $F{name2} : $F{name2} + " (" + $F{unit2} + ")"]]></valueAxisLabelExpression>
+								<valueAxisFormat>
+									<axisFormat/>
+								</valueAxisFormat>
+							</timeSeriesPlot>
+						</timeSeriesChart>
+					</axis>
+				</multiAxisPlot>
+			</multiAxisChart>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="1" width="166" height="20" uuid="d0920017-4b60-4bef-b4cf-7fc1e1d4a27b"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data e Ora]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement x="167" y="1" width="195" height="20" uuid="609cd31f-bb00-4076-9ec8-f8f00f761456"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{unit1} == null || $F{unit1} == "") ? $F{name1} : $F{name1} + " (" + $F{unit1} + ")"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="362" y="1" width="193" height="20" uuid="d3800a7a-3a5b-4514-9104-90e16ea53a32"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{unit2} == null || $F{unit2} == "") ? $F{name2} : $F{name2} + " (" + $F{unit2} + ")"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="167" y="0" width="195" height="20" isRemoveLineWhenBlank="true" uuid="b90da365-c029-4d31-884e-c9bbdb265490"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{value1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="1" y="0" width="166" height="20" isRemoveLineWhenBlank="true" uuid="c744caff-b99c-4eb4-96c7-c5374d9c497e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{datetime}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00" isBlankWhenNull="false">
+				<reportElement x="362" y="0" width="193" height="20" isRemoveLineWhenBlank="true" uuid="b9f6ca19-73a8-412b-876b-8c0688a8ca16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{value2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="8d730a4d-3e7c-4e76-95ae-2557b607c537"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

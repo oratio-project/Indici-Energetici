@@ -1,0 +1,71 @@
+body {
+	background:white url( ../images/mainbgAcqua.png);
+	font-family: Verdana, Arial, Helvetica;
+	font-size:0.8em;
+}
+
+#loginpane {
+	background : transparent url( ../images/mainBg.png) no-repeat;
+	width:550px;
+	height:211px;
+	padding:10px;
+	vertical-align:bottom;
+}
+
+a {
+	padding:1px;
+	color: #214896;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a.image {
+	border:none;
+	padding:0px;
+}
+
+a img {
+	border:none;
+}
+
+a:hover{
+	padding:0px;
+    background-color : #D1DEF1;
+    border: 1px solid #AEC7DC;
+}
+
+th
+{
+    font-size: 1.1em;
+}
+
+.listheading {
+	background-color: #841717;
+	color:white;
+	font-weight:bold;
+}
+
+.listheading a {
+	color:white;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+.listrow0
+{
+    vertical-align: middle;
+    color: black;
+    background-color: white;
+}
+.listrow1
+{
+    vertical-align: middle;
+    color: black;
+    background-color: #e0dfe3;
+}
+
+li.packcontent {
+	list-style-type:none;
+	padding-top:5px;
+}
+
